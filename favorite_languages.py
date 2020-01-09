@@ -1,4 +1,8 @@
 # author:ToddCombs
+# 导入OrderedDict()类，类名应采用驼峰命名法，即类名中的每个单词的首字母都大写，而不使用下划线。
+# 实例名和模块都采用小写格式，并在单词之间加上下划线。
+from collections import OrderedDict
+
 def exercise_13():
 
     favorite_languages = {
@@ -58,3 +62,15 @@ def exercise_13():
 
 
 exercise_13()
+
+
+# 调用OrderedDict()类创建实例，也就是空的有序字典，并存储到favorite_languages中
+favorite_languages = OrderedDict()
+# 依次添加名字-语言键值对
+favorite_languages['jen'] = 'python'
+favorite_languages['sarah'] = 'c'
+favorite_languages['edward'] = 'ruby'
+favorite_languages['phil'] = 'python'
+# 遍历favorite_languages
+for name, language in favorite_languages.items():
+    print(name.title() + "'s favorite language is " + language.title() + ".")

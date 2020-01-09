@@ -49,13 +49,41 @@ class ElectricCar(Car):
         super().__init__(make,model,year)
         # 所有父类Car实例都不包含battery_size，而根据ElectricCar子类创建的所有实例都包含这个属性
         self.battery_size = 70
+        # 让Python创建一个新的Battery实例（没有设定尺寸因此默认值为70），并将该实例存储在属性self.battery中。
+        # 每当方法__init__()被调用时，都执行该操作，因此每个ElectricCar实例都包含一个自动创建的Battery实例。
+        self.battery = Battery()
 
     def describe_battery(self):
         print("This car has a " + str(self.battery_size) + "-kWh battery.")
 
+class Battery():
+    """模拟电动汽车电瓶的简单尝试,如果battery_size没有传入参数则默认为70"""
+    def __init__(self,battery_size=70):
+        """初始化电瓶属性"""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """打印一条描述电瓶容量的消息"""
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+
+    def get_range(self):
+        """方法指出电瓶的续航里程"""
+        if self.battery_size == 70:
+            range = 240
+        elif self.battery_size == 85:
+            range = 270
+
+        message = "This car can go approximately " + str(range)
+        message += " miles on a full charge."
+        print(message)
+
+
 my_tesla = ElectricCar('tesla','model s',2022)
 print(my_tesla.get_descriptive_name())
 my_tesla.describe_battery()
+# 这行代码让python在实例my_tesla 中查找属性battery，饼对存储在该属性中Battery实例调用方法describe_battery()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
 
 class NuclearCar(Car):
     """原子神教！核动力汽车"""

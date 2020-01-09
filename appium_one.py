@@ -8,9 +8,9 @@ from appium import webdriver
 desired_caps = {}
 desired_caps['platformName'] = 'Android'
 desired_caps['platformVersion'] = '8.1.0'
-desired_caps['deviceName'] = 'Y9CAAMGMD6S8PFAQ'
+# desired_caps['deviceName'] = 'Y9CAAMGMD6S8PFAQ'
 # desired_caps['platformVersion'] = '6.0'
-# desired_caps['deviceName'] = '9HQ4C19909000574'
+desired_caps['deviceName'] = '9HQ4C19909000574'
 desired_caps['appPackage'] = 'com.android.calculator2'
 desired_caps['appActivity'] = '.Calculator'
 # 大鹏教育的appPackage名和首页引导图的Activity
